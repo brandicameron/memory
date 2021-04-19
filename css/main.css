@@ -142,10 +142,6 @@ form {
   height: 100%;
   border-radius: 30px;
   background: linear-gradient(to right, rgb(91, 102, 202), rgb(141, 115, 221));
-<<<<<<< HEAD
-=======
-  /* background: var(--accent-color); */
->>>>>>> 518e686642ffffa9d61e51e3083b3ff8c8b2adf8
 }
 
 .card-front {

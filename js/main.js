@@ -1,139 +1,15 @@
+import { easyArray } from "./easy-array.js";
+import { hardArray } from "./hard-array.js";
+
 const board = document.querySelector(".board");
 const startBtn = document.getElementById("start-btn");
-const toggle = document.getElementById("switch");
 let cardsCurrentlyFlipped = [];
 let score = 0;
-let scoreHistory = [];
-
-let easyArray = [
-  {
-    src: "../img/banana.svg",
-    id: 1,
-    name: "banana",
-  },
-  {
-    src: "../img/banana.svg",
-    id: 2,
-    name: "banana",
-  },
-  {
-    src: "../img/cake.svg",
-    id: 3,
-    name: "cake",
-  },
-  {
-    src: "../img/cake.svg",
-    id: 4,
-    name: "cake",
-  },
-  {
-    src: "../img/donut.svg",
-    id: 5,
-    name: "donut",
-  },
-  {
-    src: "../img/donut.svg",
-    id: 6,
-    name: "donut",
-  },
-  {
-    src: "../img/strawberry.svg",
-    id: 7,
-    name: "strawberry",
-  },
-  {
-    src: "../img/strawberry.svg",
-    id: 8,
-    name: "strawberry",
-  },
-  {
-    src: "../img/taco.svg",
-    id: 9,
-    name: "taco",
-  },
-  {
-    src: "../img/taco.svg",
-    id: 10,
-    name: "taco",
-  },
-  {
-    src: "../img/wine.svg",
-    id: 11,
-    name: "wine",
-  },
-  {
-    src: "../img/wine.svg",
-    id: 12,
-    name: "wine",
-  },
-];
-
-let hardArray = [
-  {
-    src: "../img/13.svg",
-    id: 13,
-    name: "13",
-  },
-  {
-    src: "../img/14.svg",
-    id: 14,
-    name: "13",
-  },
-  {
-    src: "../img/15.svg",
-    id: 15,
-    name: "15",
-  },
-  {
-    src: "../img/16.svg",
-    id: 15,
-    name: "15",
-  },
-  {
-    src: "../img/17.svg",
-    id: 17,
-    name: "17",
-  },
-  {
-    src: "../img/18.svg",
-    id: 18,
-    name: "17",
-  },
-  {
-    src: "../img/19.svg",
-    id: 19,
-    name: "19",
-  },
-  {
-    src: "../img/20.svg",
-    id: 20,
-    name: "19",
-  },
-  {
-    src: "../img/21.svg",
-    id: 21,
-    name: "21",
-  },
-  {
-    src: "../img/22.svg",
-    id: 22,
-    name: "21",
-  },
-  {
-    src: "../img/23.svg",
-    id: 23,
-    name: "23",
-  },
-  {
-    src: "../img/24.svg",
-    id: 24,
-    name: "23",
-  },
-];
+let chosenDifficulty = easyArray;
+// let scoreHistory = [];
 
 class MemoryCard {
   constructor(imgSrc, imgName) {
-    const board = document.querySelector(".board");
     let card = document.createElement("div");
     card.classList.add("card");
     card.setAttribute("data-name", imgName);
@@ -151,31 +27,26 @@ class MemoryCard {
   }
 }
 
-function startGame() {
-  gameOver();
-  displayScore();
-  createBoard();
-}
-
-let difficulty = easyArray;
 function determineDifficulty() {
-  if (toggle.checked === false) {
-    difficulty = easyArray;
+  if (this.checked === false) {
+    chosenDifficulty = easyArray;
   } else {
-    difficulty = hardArray;
+    chosenDifficulty = hardArray;
   }
   startGame();
 }
 
 function createBoard() {
-  // randomizes the array https://flaviocopes.com/how-to-shuffle-array-javascript/
-  let randomImgArray = difficulty.sort(() => Math.random() - 0.5);
-  randomImgArray.forEach((img) => {
+  // randomizes the array https://tinyurl.com/3dtf6u4b
+  let randomizedArray = chosenDifficulty.sort(() => Math.random() - 0.5);
+
+  randomizedArray.forEach((img) => {
     new MemoryCard(img.src, img.name);
   });
 
+  // Change color of cards based on selected difficulty
   let cardBacks = document.querySelectorAll(".card-back");
-  if (difficulty === hardArray) {
+  if (chosenDifficulty === hardArray) {
     cardBacks.forEach((card) => {
       card.classList.add("hard-color");
     });
@@ -184,8 +55,11 @@ function createBoard() {
 
 function flipCards(e) {
   let card = e.target.parentElement;
-  if (e.target.parentElement.classList.contains("card")) {
-    // scoring in this if statement prevents score being incremented if a third card is clicked while the original 2 cards are still flipped
+  if (card.classList.contains("card")) {
+    /* 
+    scoring in this if statement prevents score being incremented if a
+    third card is clicked while the original 2 cards are still flipped
+    */
     if (cardsCurrentlyFlipped.length === 1) {
       score++;
       displayScore();
@@ -237,9 +111,16 @@ function gameOver() {
   cardsCurrentlyFlipped = [];
 }
 
+function startGame() {
+  gameOver();
+  displayScore();
+  createBoard();
+}
 startGame();
 
 // Event Listeners
 startBtn.addEventListener("click", startGame);
 board.addEventListener("click", flipCards);
-toggle.addEventListener("change", determineDifficulty);
+document
+  .getElementById("switch")
+  .addEventListener("change", determineDifficulty);
