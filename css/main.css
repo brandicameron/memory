@@ -184,14 +184,17 @@ button:hover {
 }
 
 @media screen and (max-width: 400px) {
+  .container {
+    height: 80vh;
+  }
   .board {
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 5px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 7px;
   }
 
   .card {
-    width: 75px;
-    height: 75px;
+    width: 65px;
+    height: 65px;
     border-radius: 15px;
   }
 
