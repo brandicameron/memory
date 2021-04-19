@@ -191,7 +191,11 @@ button:hover {
 
 @media (pointer: coarse) and (min-width: 400px) {
   .container {
-    transform: scale(0.85);
+    transform: scale(0.9);
+  }
+
+  .board {
+    transform: scale(0.95);
   }
 }
 
