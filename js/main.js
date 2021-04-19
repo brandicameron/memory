@@ -173,6 +173,13 @@ function createBoard() {
   randomImgArray.forEach((img) => {
     new MemoryCard(img.src, img.name);
   });
+
+  let cardBacks = document.querySelectorAll(".card-back");
+  if (difficulty === hardArray) {
+    cardBacks.forEach((card) => {
+      card.classList.add("hard-color");
+    });
+  }
 }
 
 function flipCards(e) {
