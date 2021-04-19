@@ -189,6 +189,12 @@ button:hover {
   }
 }
 
+@media (pointer: coarse) and (min-width: 400px) {
+  .container {
+    transform: scale(0.85);
+  }
+}
+
 @media screen and (max-width: 400px) {
   .container {
     height: 80vh;
