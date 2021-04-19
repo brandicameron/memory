@@ -189,7 +189,7 @@ button:hover {
   }
 }
 
-@media (pointer: coarse) and (min-width: 400px) {
+/* @media (pointer: coarse) and (min-width: 400px) {
   .container {
     transform: scale(0.9);
   }
@@ -197,7 +197,7 @@ button:hover {
   .board {
     transform: scale(0.95);
   }
-}
+} */
 
 @media screen and (max-width: 400px) {
   .container {
