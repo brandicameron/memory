@@ -160,14 +160,14 @@ function gameOverCheck() {
   if (cardsMatched.length == 12) {
     let currentLevel = difficulty;
     let currentScore = score;
-    console.log("Game Over!");
     scoreHistory.push({ level: difficulty, score: score });
-    console.log(scoreHistory);
     addScoreToHistory(currentLevel, currentScore);
+    // console.log("Game Over!");
+    // console.log(scoreHistory);
   }
 }
 
-function gameOver() {
+function resetBoard() {
   board.innerHTML = "";
   score = 0;
   cardsCurrentlyFlipped = [];
@@ -175,7 +175,7 @@ function gameOver() {
 }
 
 function startGame() {
-  gameOver();
+  resetBoard();
   displayScore();
   createBoard();
 }
