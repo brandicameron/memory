@@ -6,7 +6,9 @@ const startBtn = document.getElementById("start-btn");
 let cardsCurrentlyFlipped = [];
 let score = 0;
 let chosenDifficulty = easyArray;
-// let scoreHistory = [];
+let difficulty = "easy";
+let cardsMatched = [];
+let scoreHistory = [];
 
 class MemoryCard {
   constructor(imgSrc, imgName) {
@@ -32,6 +34,7 @@ function determineDifficulty() {
     chosenDifficulty = easyArray;
   } else {
     chosenDifficulty = hardArray;
+    difficulty = "hard";
   }
   startGame();
 }
@@ -115,9 +118,19 @@ function checkForMatch() {
 
     setTimeout(() => {
       cardsCurrentlyFlipped.forEach((card) => {
+        cardsMatched.push(card);
         card.classList.add("hide");
       });
+      gameOverCheck();
     }, 700);
+  }
+}
+
+function gameOverCheck() {
+  if (cardsMatched.length == 12) {
+    console.log("Game Over!");
+    scoreHistory.push({ difficulty: difficulty, score: score });
+    console.log(scoreHistory);
   }
 }
 
@@ -127,10 +140,10 @@ function displayScore() {
 }
 
 function gameOver() {
-  //push score to history array
   board.innerHTML = "";
   score = 0;
   cardsCurrentlyFlipped = [];
+  cardsMatched = [];
 }
 
 function startGame() {
