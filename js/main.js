@@ -3,11 +3,11 @@ import { hardArray } from "./hard-array.js";
 
 const board = document.querySelector(".board");
 const startBtn = document.getElementById("start-btn");
-let cardsCurrentlyFlipped = [];
-let score = 0;
 let chosenDifficulty = easyArray;
 let difficulty = "easy";
+let cardsCurrentlyFlipped = [];
 let cardsMatched = [];
+let score = 0;
 let scoreHistory = [];
 
 class MemoryCard {
@@ -57,11 +57,8 @@ function determineDifficulty() {
   startGame();
 }
 
-/* 
-  randomizes the array
-  https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-  */
 function shuffle(array) {
+  // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   var currentIndex = array.length,
     temporaryValue,
     randomIndex;
@@ -144,6 +141,25 @@ function checkForMatch() {
   }
 }
 
+function gameOverCheck() {
+  if (cardsMatched.length == 12) {
+    // console.log("Game Over!");
+    // console.log(scoreHistory);
+    let currentLevel = difficulty;
+    let currentScore = score;
+    scoreHistory.push({ level: currentLevel, score: currentScore });
+    addScoreToHistory(currentLevel, currentScore);
+
+    setTimeout(() => {
+      let congrats = document.createElement("img");
+      congrats.classList.add("game-over-fun");
+      congrats.src = "../img/congrats-3.svg";
+      congrats.alt = "Congratulations!";
+      board.appendChild(congrats);
+    }, 1200);
+  }
+}
+
 function addScoreToHistory(level, score) {
   // scoreHistory.forEach((item) => {
   //   new DisplayScore(item.level, item.score);
@@ -154,17 +170,6 @@ function addScoreToHistory(level, score) {
 function displayScore() {
   let scoreDisplay = document.querySelector(".score");
   scoreDisplay.textContent = score;
-}
-
-function gameOverCheck() {
-  if (cardsMatched.length == 12) {
-    let currentLevel = difficulty;
-    let currentScore = score;
-    scoreHistory.push({ level: difficulty, score: score });
-    addScoreToHistory(currentLevel, currentScore);
-    // console.log("Game Over!");
-    // console.log(scoreHistory);
-  }
 }
 
 function resetBoard() {
