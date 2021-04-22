@@ -36,6 +36,10 @@ function determineDifficulty() {
   startGame();
 }
 
+/* 
+  randomizes the array
+  https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  */
 function shuffle(array) {
   var currentIndex = array.length,
     temporaryValue,
@@ -52,15 +56,10 @@ function shuffle(array) {
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-
   return array;
 }
 
 function createBoard() {
-  /* 
-  randomizes the array
-  https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-  */
   let randomizedArray = shuffle(chosenDifficulty);
 
   randomizedArray.forEach((img) => {
