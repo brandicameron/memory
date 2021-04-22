@@ -29,9 +29,27 @@ class MemoryCard {
   }
 }
 
+class DisplayScore {
+  constructor(level, turns) {
+    let scoresContainer = document.querySelector(".scores-container");
+    let scoreDisplay = document.createElement("div");
+    scoreDisplay.classList.add("score-display");
+    scoresContainer.appendChild(scoreDisplay);
+    let levelDisplay = document.createElement("div");
+    levelDisplay.classList.add("level");
+    levelDisplay.textContent = level;
+    scoreDisplay.appendChild(levelDisplay);
+    let turnsDisplay = document.createElement("div");
+    turnsDisplay.classList.add("num-turns");
+    turnsDisplay.textContent = turns;
+    scoreDisplay.appendChild(turnsDisplay);
+  }
+}
+
 function determineDifficulty() {
   if (this.checked === false) {
     chosenDifficulty = easyArray;
+    difficulty = "easy";
   } else {
     chosenDifficulty = hardArray;
     difficulty = "hard";
@@ -126,17 +144,27 @@ function checkForMatch() {
   }
 }
 
-function gameOverCheck() {
-  if (cardsMatched.length == 12) {
-    console.log("Game Over!");
-    scoreHistory.push({ difficulty: difficulty, score: score });
-    console.log(scoreHistory);
-  }
+function addScoreToHistory(level, score) {
+  // scoreHistory.forEach((item) => {
+  //   new DisplayScore(item.level, item.score);
+  // });
+  new DisplayScore(level, score);
 }
 
 function displayScore() {
   let scoreDisplay = document.querySelector(".score");
   scoreDisplay.textContent = score;
+}
+
+function gameOverCheck() {
+  if (cardsMatched.length == 12) {
+    let currentLevel = difficulty;
+    let currentScore = score;
+    console.log("Game Over!");
+    scoreHistory.push({ level: difficulty, score: score });
+    console.log(scoreHistory);
+    addScoreToHistory(currentLevel, currentScore);
+  }
 }
 
 function gameOver() {

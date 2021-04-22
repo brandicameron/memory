@@ -16,6 +16,7 @@ body {
   background-color: black;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
   background-attachment: fixed;
+  color: #fff;
 }
 
 .score-box {
@@ -39,7 +40,7 @@ body {
 
 .container {
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   display: grid;
   place-content: center;
 }
@@ -187,6 +188,48 @@ button:hover {
   to {
     transform: scale(0);
   }
+}
+
+.score-history-container {
+  border: 5px solid black;
+  border-image-source: linear-gradient(
+    to right,
+    rgb(91, 102, 202),
+    rgb(141, 115, 221)
+  );
+  border-image-slice: 1;
+  width: 50vw;
+  min-width: 325px;
+  margin: 25px auto;
+  padding: 20px 50px;
+}
+
+h1 {
+  text-align: center;
+}
+
+header {
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+  margin: 8px auto;
+  padding: 8px 0;
+  background: #fff;
+  color: #000;
+  border-radius: 20px;
+}
+
+.score-display {
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 15px 0;
+  border-bottom: 1px dotted rgb(255 255 255 / 60%);
+}
+
+.score-display:last-child {
+  border-bottom: none;
 }
 
 @media (pointer: coarse) and (min-width: 400px) {
