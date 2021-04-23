@@ -138,7 +138,6 @@ form {
 }
 
 .card {
-  /* position: relative; */
   width: clamp(90px, 20vw, 200px);
   height: clamp(90px, 20vw, 200px);
   background: #fff;
@@ -416,11 +415,10 @@ header {
     height: 80vh;
   }
 
-  /* testing  */
   .board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 18px;
+    grid-gap: 20px;
   }
 
   .card {
