@@ -1,6 +1,6 @@
 /*  Background love: https://www.svgbackgrounds.com/  */
 :root {
-  --accent-color: rgb(43, 184, 43);
+  --accent-color: #2bb82b;
 }
 
 * {
@@ -236,17 +236,54 @@ header {
   border-bottom: none;
 }
 
-.game-over-fun {
+.congrats {
   position: absolute;
   top: 50%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%) scale(0);
   transform-origin: center;
+  width: 500px;
   z-index: 10;
-  width: 169px;
-  mix-blend-mode: multiply;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
   animation: grow 75ms linear forwards;
+}
+
+.arrow {
+  position: absolute;
+  top: 75%;
+  left: 48%;
+  margin-right: -50%;
+  z-index: 10;
+  width: 50px;
+  visibility: hidden;
+  animation: blink 400ms linear 3;
+}
+
+@keyframes blink {
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+.good::before {
+  display: block;
+  content: "Dude, are you even trying???";
+}
+
+.better::before {
+  display: block;
+  content: "That was pretty amazing!";
+}
+
+.best::before {
+  display: block;
+  content: "Omg, did you cheat?? That was awesome!!";
 }
 
 @keyframes grow {

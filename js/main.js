@@ -165,14 +165,31 @@ function gameOverCheck() {
 
     saveScore(currentLevel, currentScore);
 
-    // setTimeout(() => {
-    //   let congrats = document.createElement("img");
-    //   congrats.classList.add("game-over-fun");
-    //   congrats.src = "../img/cactus.gif";
-    //   // congrats.src = "../img/congrats-3.svg";
-    //   congrats.alt = "Congratulations!";
-    //   board.appendChild(congrats);
-    // }, 1200);
+    setTimeout(() => {
+      let congrats = document.createElement("div");
+      congrats.classList.add("congrats");
+
+      switch (cardsMatched.length === 12) {
+        case currentScore < 9:
+          congrats.classList.add("best");
+          break;
+        case currentScore < 12:
+          congrats.classList.add("better");
+          break;
+        default:
+          congrats.classList.add("good");
+      }
+
+      board.appendChild(congrats);
+    }, 1200);
+
+    setTimeout(() => {
+      let arrow = document.createElement("img");
+      arrow.classList.add("arrow");
+      arrow.src = "../img/arrow.svg";
+      arrow.alt = "Start a New Game!!";
+      board.appendChild(arrow);
+    }, 2500);
   }
 }
 
