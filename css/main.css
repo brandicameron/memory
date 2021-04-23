@@ -113,8 +113,8 @@ form {
 
 .card {
   position: relative;
-  width: clamp(75px, 20vw, 200px);
-  height: clamp(75px, 20vw, 200px);
+  width: clamp(65px, 20vw, 200px);
+  height: clamp(65px, 20vw, 200px);
   background: #fff;
   display: flex;
   justify-content: center;
@@ -243,32 +243,12 @@ header {
   margin-right: -50%;
   transform: translate(-50%, -50%) scale(0);
   transform-origin: center;
-  width: 500px;
+  width: clamp(300px, 500px, 50vw);
   z-index: 10;
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, -0.875rem + 8.333vw, 2.5rem);
   font-weight: bold;
   text-align: center;
   animation: grow 75ms linear forwards;
-}
-
-.arrow {
-  position: absolute;
-  top: 75%;
-  left: 48%;
-  margin-right: -50%;
-  z-index: 10;
-  width: 50px;
-  visibility: hidden;
-  animation: blink 400ms linear 3;
-}
-
-@keyframes blink {
-  50% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
-  }
 }
 
 .good::before {
@@ -292,6 +272,26 @@ header {
   }
 }
 
+.arrow {
+  position: absolute;
+  top: 75%;
+  left: 48%;
+  margin-right: -50%;
+  z-index: 10;
+  width: 50px;
+  /* visibility: hidden; */
+  /* animation: blink 400ms linear 3; */
+}
+
+@keyframes blink {
+  50% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
 @media (pointer: coarse) and (min-width: 400px) {
   .container {
     transform: scale(0.9);
@@ -306,6 +306,13 @@ header {
   .card {
     width: clamp(75px, 20vh, 200px);
     height: clamp(75px, 20vh, 200px);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .arrow {
+    top: 67%;
+    left: 47%;
   }
 }
 
@@ -331,5 +338,10 @@ header {
 
   .match-visual {
     border: 5px dashed var(--accent-color);
+  }
+
+  .arrow {
+    top: 60%;
+    left: 43%;
   }
 }
