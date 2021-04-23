@@ -336,7 +336,7 @@ header {
   transform-origin: center;
   width: clamp(300px, 500px, 50vw);
   z-index: 10;
-  font-size: clamp(1.5rem, -0.875rem + 8.333vw, 2.5rem);
+  font-size: clamp(1.7rem, -0.875rem + 8.333vw, 2.5rem);
   font-weight: bold;
   text-align: center;
   -webkit-animation: grow 75ms linear forwards;
