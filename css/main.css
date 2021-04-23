@@ -265,7 +265,7 @@ header {
   }
 }
 
-@media (orientation: landscape) and (max-height: 750px) {
+@media (orientation: landscape) and (max-height: 775px) {
   .card {
     width: clamp(75px, 20vh, 200px);
     height: clamp(75px, 20vh, 200px);
