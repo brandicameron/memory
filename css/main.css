@@ -372,11 +372,16 @@ header {
   }
 }
 
+.button-container {
+  position: relative;
+  margin: 0 auto;
+}
+
 .arrow {
   position: absolute;
-  top: 75%;
-  left: 48%;
-  margin-right: -50%;
+  display: block;
+  top: -100%;
+  left: 37%;
   z-index: 10;
   width: 50px;
   visibility: hidden;
@@ -423,12 +428,12 @@ header {
   }
 }
 
-@media screen and (max-width: 1200px) {
+/* @media screen and (max-width: 1200px) {
   .arrow {
     top: 67%;
     left: 47%;
   }
-}
+} */
 
 @media screen and (max-width: 400px) {
   .container {
@@ -454,8 +459,8 @@ header {
     border: 5px dashed var(--accent-color);
   }
 
-  .arrow {
+  /* .arrow {
     top: 60%;
     left: 43%;
-  }
+  } */
 }
