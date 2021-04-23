@@ -8,7 +8,23 @@ let difficulty = "easy";
 let cardsCurrentlyFlipped = [];
 let cardsMatched = [];
 let score = 0;
-let scoreHistory = [];
+
+// Add score to Local Storage
+let scoreHistory = JSON.parse(localStorage.getItem("scoreList") || "[]");
+
+function saveScore(level, score) {
+  let newData = { level: level, score: score };
+  scoreHistory.push(newData);
+  localStorage.setItem("scoreList", JSON.stringify(scoreHistory));
+  // add score to DOM
+  new ScoreTemplate(newData.level, newData.score);
+}
+
+function displayScoreHistory() {
+  scoreHistory.forEach((score) => {
+    new ScoreTemplate(score.level, score.score);
+  });
+}
 
 class MemoryCard {
   constructor(imgSrc, imgName) {
@@ -18,6 +34,7 @@ class MemoryCard {
     board.appendChild(card);
     let cardBack = document.createElement("div");
     cardBack.classList.add("card-back");
+    cardBack.textContent = imgName; //delete when done testing lol
     card.appendChild(cardBack);
     let cardFront = document.createElement("div");
     cardFront.classList.add("card-front");
@@ -29,7 +46,7 @@ class MemoryCard {
   }
 }
 
-class DisplayScore {
+class ScoreTemplate {
   constructor(level, turns) {
     let scoresContainer = document.querySelector(".scores-container");
     let scoreDisplay = document.createElement("div");
@@ -102,7 +119,7 @@ function flipCards(e) {
     */
     if (cardsCurrentlyFlipped.length === 1) {
       score++;
-      displayScore();
+      displayCurrentScore();
     }
     if (cardsCurrentlyFlipped.length < 2) {
       card.classList.add("flipped");
@@ -143,31 +160,23 @@ function checkForMatch() {
 
 function gameOverCheck() {
   if (cardsMatched.length == 12) {
-    // console.log("Game Over!");
-    // console.log(scoreHistory);
     let currentLevel = difficulty;
     let currentScore = score;
-    scoreHistory.push({ level: currentLevel, score: currentScore });
-    addScoreToHistory(currentLevel, currentScore);
 
-    setTimeout(() => {
-      let congrats = document.createElement("img");
-      congrats.classList.add("game-over-fun");
-      congrats.src = "../img/congrats-3.svg";
-      congrats.alt = "Congratulations!";
-      board.appendChild(congrats);
-    }, 1200);
+    saveScore(currentLevel, currentScore);
+
+    // setTimeout(() => {
+    //   let congrats = document.createElement("img");
+    //   congrats.classList.add("game-over-fun");
+    //   congrats.src = "../img/cactus.gif";
+    //   // congrats.src = "../img/congrats-3.svg";
+    //   congrats.alt = "Congratulations!";
+    //   board.appendChild(congrats);
+    // }, 1200);
   }
 }
 
-function addScoreToHistory(level, score) {
-  // scoreHistory.forEach((item) => {
-  //   new DisplayScore(item.level, item.score);
-  // });
-  new DisplayScore(level, score);
-}
-
-function displayScore() {
+function displayCurrentScore() {
   let scoreDisplay = document.querySelector(".score");
   scoreDisplay.textContent = score;
 }
@@ -179,12 +188,18 @@ function resetBoard() {
   cardsMatched = [];
 }
 
+function clearHistory() {
+  localStorage.clear();
+  document.querySelector(".scores-container").innerHTML = "";
+}
+
 function startGame() {
   resetBoard();
-  displayScore();
+  displayCurrentScore();
   createBoard();
 }
 startGame();
+displayScoreHistory();
 
 // Event Listeners
 startBtn.addEventListener("click", startGame);
@@ -192,3 +207,6 @@ board.addEventListener("click", flipCards);
 document
   .getElementById("switch")
   .addEventListener("change", determineDifficulty);
+document
+  .getElementById("clear-history")
+  .addEventListener("click", clearHistory);
