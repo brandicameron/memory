@@ -6,7 +6,6 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: sans-serif;
 }
@@ -42,18 +41,13 @@ body {
   position: relative;
   width: 100vw;
   height: 95vh;
-  display: -ms-grid;
   display: grid;
   place-content: center;
 }
 
 form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   color: #fff;
 }
@@ -84,18 +78,8 @@ form {
 .checkbox-label::before {
   width: 100%;
   height: 100%;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(rgb(91, 102, 202)),
-    to(rgb(141, 115, 221))
-  );
-  background: -o-linear-gradient(left, rgb(91, 102, 202), rgb(141, 115, 221));
   background: linear-gradient(to right, rgb(91, 102, 202), rgb(141, 115, 221));
   border-radius: 1em;
-  -webkit-transition: background-color 250ms ease;
-  -o-transition: background-color 250ms ease;
   transition: background-color 250ms ease;
 }
 
@@ -106,22 +90,11 @@ form {
   height: 25px;
   border-radius: 50%;
   background-color: #fff;
-  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
-  -webkit-transition: left 250ms ease;
-  -o-transition: left 250ms ease;
   transition: left 250ms ease;
 }
 
 .checkbox:checked + .checkbox-label::before {
-  background: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    from(rgb(181, 26, 0)),
-    to(rgb(227, 0, 79))
-  );
-  background: -o-linear-gradient(bottom, rgb(181, 26, 0), rgb(227, 0, 79));
   background: linear-gradient(to top, rgb(181, 26, 0), rgb(227, 0, 79));
 }
 
@@ -132,9 +105,7 @@ form {
 .board {
   width: 100%;
   height: 100%;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   place-content: center;
@@ -145,30 +116,17 @@ form {
   width: clamp(65px, 20vw, 200px);
   height: clamp(65px, 20vw, 200px);
   background: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   border-radius: 30px;
-  -webkit-transition: -webkit-transform 0.6s;
-  transition: -webkit-transform 0.6s;
-  -o-transition: transform 0.6s;
   transition: transform 0.6s;
-  transition: transform 0.6s, -webkit-transform 0.6s;
-  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-box-shadow: 5px 5px 10px -5px rgba(0 0 0 / 40%);
   box-shadow: 5px 5px 10px -5px rgba(0 0 0 / 40%);
   cursor: pointer;
 }
 
 .flipped {
-  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
@@ -180,32 +138,17 @@ form {
 }
 
 .card-back {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
 
   width: 100%;
   height: 100%;
   border-radius: 30px;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(rgb(91, 102, 202)),
-    to(rgb(141, 115, 221))
-  );
-  background: -o-linear-gradient(left, rgb(91, 102, 202), rgb(141, 115, 221));
   background: linear-gradient(to right, rgb(91, 102, 202), rgb(141, 115, 221));
 }
 
 .card-front {
-  -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
 
@@ -223,18 +166,15 @@ button {
   height: 50px;
   margin: 25px auto 0 auto;
   cursor: pointer;
-  -webkit-filter: drop-shadow(5px 5px 8px rgba(0 0 0 / 20%));
   filter: drop-shadow(5px 5px 8px rgba(0 0 0 / 20%));
 }
 
 button:hover {
   background-color: rgb(44, 204, 44);
-  -webkit-box-shadow: inset 2px 2px 5px rgba(0 0 0 / 15%);
   box-shadow: inset 2px 2px 5px rgba(0 0 0 / 15%);
 }
 
 .hide {
-  -webkit-animation: hide 250ms linear forwards 700ms;
   animation: hide 250ms linear forwards 700ms;
 }
 
@@ -243,38 +183,17 @@ button:hover {
 }
 
 .hard-color {
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(rgb(181, 26, 0)),
-    to(rgb(227, 0, 79))
-  );
-  background: -o-linear-gradient(left, rgb(181, 26, 0), rgb(227, 0, 79));
   background: linear-gradient(to right, rgb(181, 26, 0), rgb(227, 0, 79));
-}
-
-@-webkit-keyframes hide {
-  to {
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
 }
 
 @keyframes hide {
   to {
-    -webkit-transform: scale(0);
     transform: scale(0);
   }
 }
 
 .score-history-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   border: 5px solid black;
   border-image-source: linear-gradient(
@@ -294,11 +213,8 @@ h1 {
 }
 
 header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 70%;
-  -ms-flex-pack: distribute;
   justify-content: space-around;
   margin: 8px auto;
   padding: 8px 0;
@@ -308,11 +224,8 @@ header {
 }
 
 .score-display {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 70%;
-  -ms-flex-pack: distribute;
   justify-content: space-around;
   margin: 0 auto;
   padding: 15px 0;
@@ -328,18 +241,13 @@ header {
   top: 50%;
   left: 50%;
   margin-right: -50%;
-  -webkit-transform: translate(-50%, -50%) scale(0);
-  -ms-transform: translate(-50%, -50%) scale(0);
   transform: translate(-50%, -50%) scale(0);
-  -webkit-transform-origin: center;
-  -ms-transform-origin: center;
   transform-origin: center;
   width: clamp(300px, 500px, 50vw);
   z-index: 10;
   font-size: clamp(1.5rem, -0.875rem + 8.333vw, 2.5rem);
   font-weight: bold;
   text-align: center;
-  -webkit-animation: grow 75ms linear forwards;
   animation: grow 75ms linear forwards;
 }
 
@@ -358,16 +266,8 @@ header {
   content: "Omg, did you cheat?? That was awesome!!";
 }
 
-@-webkit-keyframes grow {
-  100% {
-    -webkit-transform: translate(-50%, -50%) scale(1);
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
 @keyframes grow {
   100% {
-    -webkit-transform: translate(-50%, -50%) scale(1);
     transform: translate(-50%, -50%) scale(1);
   }
 }
@@ -380,17 +280,7 @@ header {
   z-index: 10;
   width: 50px;
   visibility: hidden;
-  -webkit-animation: blink 400ms linear 3;
   animation: blink 400ms linear 3;
-}
-
-@-webkit-keyframes blink {
-  50% {
-    visibility: hidden;
-  }
-  100% {
-    visibility: visible;
-  }
 }
 
 @keyframes blink {
@@ -404,14 +294,10 @@ header {
 
 @media (pointer: coarse) and (min-width: 400px) {
   .container {
-    -webkit-transform: scale(0.9);
-    -ms-transform: scale(0.9);
     transform: scale(0.9);
   }
 
   .board {
-    -webkit-transform: scale(0.95);
-    -ms-transform: scale(0.95);
     transform: scale(0.95);
   }
 }
