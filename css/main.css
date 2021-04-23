@@ -406,7 +406,7 @@ header {
     visibility: visible;
   }
 }
-
+/* 
 @media (pointer: coarse) and (min-width: 400px) {
   .container {
     -webkit-transform: scale(0.9);
@@ -419,7 +419,7 @@ header {
     -ms-transform: scale(0.95);
     transform: scale(0.95);
   }
-}
+} */
 
 @media (orientation: landscape) and (max-height: 775px) {
   .card {
@@ -427,13 +427,6 @@ header {
     height: clamp(75px, 20vh, 200px);
   }
 }
-
-/* @media screen and (max-width: 1200px) {
-  .arrow {
-    top: 67%;
-    left: 47%;
-  }
-} */
 
 @media screen and (max-width: 400px) {
   .container {
@@ -458,9 +451,4 @@ header {
   .match-visual {
     border: 5px dashed var(--accent-color);
   }
-
-  /* .arrow {
-    top: 60%;
-    left: 43%;
-  } */
 }
