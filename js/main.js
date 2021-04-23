@@ -34,7 +34,7 @@ class MemoryCard {
     board.appendChild(card);
     let cardBack = document.createElement("div");
     cardBack.classList.add("card-back");
-    cardBack.textContent = imgName; //delete when done testing lol
+    // cardBack.textContent = imgName; //for testing lol
     card.appendChild(cardBack);
     let cardFront = document.createElement("div");
     cardFront.classList.add("card-front");
