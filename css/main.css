@@ -420,12 +420,11 @@ header {
   .board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2px;
+    grid-gap: 18px;
   }
 
   .card {
     border-radius: 15px;
-    margin: 5px;
   }
 
   .card-back {
