@@ -113,8 +113,8 @@ form {
 
 .card {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: clamp(75px, 20vw, 200px);
+  height: clamp(75px, 20vw, 200px);
   background: #fff;
   display: flex;
   justify-content: center;
@@ -244,7 +244,6 @@ header {
   transform: translate(-50%, -50%) scale(0);
   transform-origin: center;
   z-index: 10;
-  /* width: 60vw; */
   width: 169px;
   mix-blend-mode: multiply;
   animation: grow 75ms linear forwards;
@@ -266,6 +265,13 @@ header {
   }
 }
 
+@media screen and (max-height: 750px) {
+  .card {
+    width: clamp(75px, 20vh, 200px);
+    height: clamp(75px, 20vh, 200px);
+  }
+}
+
 @media screen and (max-width: 400px) {
   .container {
     height: 80vh;
@@ -275,8 +281,6 @@ header {
   }
 
   .card {
-    width: 75px;
-    height: 75px;
     border-radius: 15px;
   }
 
