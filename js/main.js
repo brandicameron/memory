@@ -187,7 +187,7 @@ function gameOverCheck() {
       let container = document.querySelector(".button-container");
       let arrow = document.createElement("img");
       arrow.classList.add("arrow");
-      arrow.src = "../img/arrow.svg";
+      arrow.src = "./img/arrow.svg";
       arrow.alt = "Start a New Game!!";
       container.appendChild(arrow);
     }, 2500);
