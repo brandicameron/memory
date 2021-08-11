@@ -16,7 +16,7 @@ function saveScore(level, score) {
   let newData = { level: level, score: score };
   scoreHistory.push(newData);
   localStorage.setItem("scoreList", JSON.stringify(scoreHistory));
-  // add score to DOM
+  // Add score to DOM
   new ScoreTemplate(newData.level, newData.score);
 }
 
@@ -40,6 +40,7 @@ class MemoryCard {
     cardFront.classList.add("card-front");
     card.appendChild(cardFront);
     let cardImg = document.createElement("img");
+    cardImg.classList.add("card-image");
     cardImg.src = imgSrc;
     cardImg.setAttribute("data-name", imgName);
     cardFront.appendChild(cardImg);
@@ -64,12 +65,18 @@ class ScoreTemplate {
 }
 
 function determineDifficulty() {
+  const scoreBox = document.documentElement.querySelector(".score-box");
+
   if (this.checked === false) {
     chosenDifficulty = easyArray;
     difficulty = "easy";
+    scoreBox.style.background = "var(--gradient)";
+    startBtn.style.background = "var(--gradient)";
   } else {
     chosenDifficulty = hardArray;
     difficulty = "hard";
+    scoreBox.style.background = "var(--hard-gradient)";
+    startBtn.style.background = "var(--hard-gradient)";
   }
   startGame();
 }
@@ -80,13 +87,10 @@ function shuffle(array) {
     temporaryValue,
     randomIndex;
 
-  // While there remain elements to shuffle...
   while (0 !== currentIndex) {
-    // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
 
-    // And swap it with the current element.
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
@@ -103,6 +107,7 @@ function createBoard() {
 
   // Change color of cards based on selected difficulty
   let cardBacks = document.querySelectorAll(".card-back");
+
   if (chosenDifficulty === hardArray) {
     cardBacks.forEach((card) => {
       card.classList.add("hard-color");
@@ -114,7 +119,7 @@ function flipCards(e) {
   let card = e.target.parentElement;
   if (card.classList.contains("card")) {
     /* 
-    scoring in this if statement prevents score being incremented if a
+    Scoring in this if statement prevents score being incremented if a
     third card is clicked while the original 2 cards are still flipped
     */
     if (cardsCurrentlyFlipped.length === 1) {
@@ -144,7 +149,7 @@ function checkForMatch() {
   if (firstItemName === secondItemName) {
     setTimeout(() => {
       cardsCurrentlyFlipped.forEach((matchedCard) => {
-        matchedCard.classList.add("match-visual");
+        matchedCard.classList.add("correct-match");
       });
     }, 200);
 
@@ -159,7 +164,7 @@ function checkForMatch() {
 }
 
 function gameOverCheck() {
-  if (cardsMatched.length == 12) {
+  if (cardsMatched.length == chosenDifficulty.length) {
     let currentLevel = difficulty;
     let currentScore = score;
 
@@ -168,12 +173,13 @@ function gameOverCheck() {
     setTimeout(() => {
       let congrats = document.createElement("div");
       congrats.classList.add("congrats");
+      congrats.textContent = `You completed the game in ${score} turns!`;
 
-      switch (cardsMatched.length === 12) {
-        case currentScore < 9:
+      switch (cardsMatched.length === chosenDifficulty.length) {
+        case currentScore < chosenDifficulty.length - 4:
           congrats.classList.add("best");
           break;
-        case currentScore < 12:
+        case currentScore < chosenDifficulty.length:
           congrats.classList.add("better");
           break;
         default:
@@ -220,11 +226,28 @@ startGame();
 displayScoreHistory();
 
 // Event Listeners
+const toggleSwitch = document.getElementById("switch");
+const clearHistoryBtn = document.getElementById("clear-history");
+
 startBtn.addEventListener("click", startGame);
 board.addEventListener("click", flipCards);
-document
-  .getElementById("switch")
-  .addEventListener("change", determineDifficulty);
-document
-  .getElementById("clear-history")
-  .addEventListener("click", clearHistory);
+toggleSwitch.addEventListener("change", determineDifficulty);
+clearHistoryBtn.addEventListener("click", clearHistory);
+
+// Test
+// (function gameOverTest() {
+//   let allCards = document.querySelectorAll(".card");
+//   allCards.forEach((card) => {
+//     card.classList.add("hide");
+//   });
+
+//   setTimeout(() => {
+//     let congrats = document.createElement("div");
+//     congrats.classList.add("congrats");
+//     congrats.textContent = `You completed the game in ${score} turns!`;
+
+//     congrats.classList.add("best");
+
+//     board.appendChild(congrats);
+//   }, 1200);
+// })();

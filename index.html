@@ -1,62 +1,65 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Memory Game</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Brandi Cameron | hello@brandicameron.com" />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/main.css" />
 
-    <!-- FB Share Graphic -->
-    <meta property="og:title" content="Memory Game" />
-    <meta property="og:image" content="  IMAGE URL  HERE  " />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title>Memory Game</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Brandi Cameron | hello@brandicameron.com" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="css/styles.min.css" />
 
-  <body>
-    <div class="score-box">
-      <p class="turns"># of Turns</p>
-      <p class="score"></p>
-    </div>
-    <div class="container">
-      <!-- <div class="congrats best"></div> -->
-      <form>
-        <p>Easy</p>
-        <div class="toggle">
-          <input id="switch" type="checkbox" class="checkbox" />
-          <label for="switch" class="checkbox-label"></label>
-        </div>
-        <p>Hard</p>
-      </form>
-      <div class="board">
-        <!-- <div class="card">
+  <!-- FB Share Graphic -->
+  <meta property="og:title" content="Memory Game" />
+  <meta property="og:image" content="  IMAGE URL  HERE  " />
+</head>
+
+<body>
+  <div class="score-box">
+    <p class="turns"># of Turns</p>
+    <p class="score"></p>
+  </div>
+  <img src="./img/logo2.svg" alt="Monster Match Logo" class="logo">
+  <div class="container">
+    <!-- <div class="congrats best"></div> -->
+    <form>
+      <p>Easy</p>
+      <div class="toggle">
+        <input id="switch" type="checkbox" class="checkbox" />
+        <label for="switch" class="checkbox-label"></label>
+      </div>
+      <p>Hard</p>
+    </form>
+    <div class="board">
+      <!-- <div class="card">
           <div class="card-back"></div>
           <div class="card-front"><img src="./img/banana.svg" alt="" /></div>
         </div> -->
-      </div>
-      <div class="button-container">
-        <!-- <img src="./img/arrow.svg" alt="Start a New Game!" class="arrow" /> -->
-        <button id="start-btn">Start New Game</button>
-      </div>
     </div>
+    <div class="button-container">
+      <!-- <img src="./img/arrow.svg" alt="Start a New Game!" class="arrow" /> -->
+      <button id="start-btn">Start New Game</button>
+    </div>
+  </div>
 
-    <div class="score-history-container">
-      <h1>History</h1>
-      <header>
-        <h3>Level</h3>
-        <h3>Turns</h3>
-      </header>
-      <div class="scores-container">
-        <!-- <div class="score-display">
+  <div class="score-history-container">
+    <h1>History</h1>
+    <header>
+      <h3>Level</h3>
+      <h3>Turns</h3>
+    </header>
+    <div class="scores-container">
+      <!-- <div class="score-display">
           <div class="level">Easy</div>
           <div class="num-turns">11</div>
         </div> -->
-      </div>
-      <button id="clear-history">Clear History</button>
     </div>
+    <button id="clear-history">Clear History</button>
+  </div>
 
-    <script type="module" src="js/main.js"></script>
-  </body>
+  <script type="module" src="js/main.js"></script>
+</body>
+
 </html>

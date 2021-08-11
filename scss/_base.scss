@@ -1,0 +1,30 @@
+:root {
+  --correct-color: #2bb82b;
+  --correct-color: rgb(93, 248, 93);
+  --accent-color: #c58ced;
+  --gradient: linear-gradient(-90deg, #5280fd, #c58ced);
+  --hard-gradient: linear-gradient(to right, rgb(181, 26, 0), rgb(227, 0, 79));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: rgb(19, 19, 19);
+  background-image: url(../img/stars.svg);
+  background-size: 70%;
+  color: #fff;
+}
+
+.logo {
+  position: absolute;
+  width: 175px;
+  height: auto;
+  top: 25px;
+  left: 25px;
+  // transform: skewY(-15deg);
+}
