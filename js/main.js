@@ -16,7 +16,7 @@ function saveScore(level, score) {
   let newData = { level: level, score: score };
   scoreHistory.push(newData);
   localStorage.setItem("scoreList", JSON.stringify(scoreHistory));
-  // add score to DOM
+  // Add score to DOM
   new ScoreTemplate(newData.level, newData.score);
 }
 
@@ -34,7 +34,7 @@ class MemoryCard {
     board.appendChild(card);
     let cardBack = document.createElement("div");
     cardBack.classList.add("card-back");
-    cardBack.textContent = imgName; //for testing lol
+    // cardBack.textContent = imgName; //for testing lol
     card.appendChild(cardBack);
     let cardFront = document.createElement("div");
     cardFront.classList.add("card-front");
@@ -65,12 +65,18 @@ class ScoreTemplate {
 }
 
 function determineDifficulty() {
+  const scoreBox = document.documentElement.querySelector(".score-box");
+
   if (this.checked === false) {
     chosenDifficulty = easyArray;
     difficulty = "easy";
+    scoreBox.style.background = "var(--gradient)";
+    startBtn.style.background = "var(--gradient)";
   } else {
     chosenDifficulty = hardArray;
     difficulty = "hard";
+    scoreBox.style.background = "var(--hard-gradient)";
+    startBtn.style.background = "var(--hard-gradient)";
   }
   startGame();
 }
@@ -81,13 +87,10 @@ function shuffle(array) {
     temporaryValue,
     randomIndex;
 
-  // While there remain elements to shuffle...
   while (0 !== currentIndex) {
-    // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
 
-    // And swap it with the current element.
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
@@ -104,6 +107,7 @@ function createBoard() {
 
   // Change color of cards based on selected difficulty
   let cardBacks = document.querySelectorAll(".card-back");
+
   if (chosenDifficulty === hardArray) {
     cardBacks.forEach((card) => {
       card.classList.add("hard-color");
@@ -115,7 +119,7 @@ function flipCards(e) {
   let card = e.target.parentElement;
   if (card.classList.contains("card")) {
     /* 
-    scoring in this if statement prevents score being incremented if a
+    Scoring in this if statement prevents score being incremented if a
     third card is clicked while the original 2 cards are still flipped
     */
     if (cardsCurrentlyFlipped.length === 1) {
@@ -222,14 +226,13 @@ startGame();
 displayScoreHistory();
 
 // Event Listeners
+const toggleSwitch = document.getElementById("switch");
+const clearHistoryBtn = document.getElementById("clear-history");
+
 startBtn.addEventListener("click", startGame);
 board.addEventListener("click", flipCards);
-document
-  .getElementById("switch")
-  .addEventListener("change", determineDifficulty);
-document
-  .getElementById("clear-history")
-  .addEventListener("click", clearHistory);
+toggleSwitch.addEventListener("change", determineDifficulty);
+clearHistoryBtn.addEventListener("click", clearHistory);
 
 // Test
 // (function gameOverTest() {

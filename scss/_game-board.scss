@@ -50,6 +50,7 @@
 
 .card-front {
   transform: rotateY(-180deg);
+  background-color: #fff;
 }
 
 .card-image {
@@ -74,7 +75,9 @@
 }
 
 .hard-color {
-  background: linear-gradient(to right, rgb(181, 26, 0), rgb(227, 0, 79));
+  background-image: url(../img/circles.svg), var(--hard-gradient);
+  background-size: 120%;
+  background-position: center;
 }
 
 .button-container {

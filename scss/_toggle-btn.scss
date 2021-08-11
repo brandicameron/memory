@@ -49,7 +49,7 @@ form {
 }
 
 .checkbox:checked + .checkbox-label::before {
-  background: linear-gradient(to top, rgb(181, 26, 0), rgb(227, 0, 79));
+  background: var(--hard-gradient);
 }
 
 .checkbox:checked + .checkbox-label::after {
