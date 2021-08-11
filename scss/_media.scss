@@ -1,0 +1,33 @@
+@media screen and (max-width: 900px) {
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .card {
+    width: 14vw;
+    height: 14vw;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .logo {
+    width: 150px;
+  }
+
+  .board {
+    grid-gap: 10px;
+  }
+
+  .card {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+@media (orientation: landscape) and (pointer: coarse) {
+  .container {
+    height: calc(100vh - 70px);
+  }
+}

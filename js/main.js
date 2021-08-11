@@ -34,12 +34,13 @@ class MemoryCard {
     board.appendChild(card);
     let cardBack = document.createElement("div");
     cardBack.classList.add("card-back");
-    // cardBack.textContent = imgName; //for testing lol
+    cardBack.textContent = imgName; //for testing lol
     card.appendChild(cardBack);
     let cardFront = document.createElement("div");
     cardFront.classList.add("card-front");
     card.appendChild(cardFront);
     let cardImg = document.createElement("img");
+    cardImg.classList.add("card-image");
     cardImg.src = imgSrc;
     cardImg.setAttribute("data-name", imgName);
     cardFront.appendChild(cardImg);
@@ -144,7 +145,7 @@ function checkForMatch() {
   if (firstItemName === secondItemName) {
     setTimeout(() => {
       cardsCurrentlyFlipped.forEach((matchedCard) => {
-        matchedCard.classList.add("match-visual");
+        matchedCard.classList.add("correct-match");
       });
     }, 200);
 
@@ -159,7 +160,7 @@ function checkForMatch() {
 }
 
 function gameOverCheck() {
-  if (cardsMatched.length == 12) {
+  if (cardsMatched.length == chosenDifficulty.length) {
     let currentLevel = difficulty;
     let currentScore = score;
 
@@ -168,12 +169,13 @@ function gameOverCheck() {
     setTimeout(() => {
       let congrats = document.createElement("div");
       congrats.classList.add("congrats");
+      congrats.textContent = `You completed the game in ${score} turns!`;
 
-      switch (cardsMatched.length === 12) {
-        case currentScore < 9:
+      switch (cardsMatched.length === chosenDifficulty.length) {
+        case currentScore < chosenDifficulty.length - 4:
           congrats.classList.add("best");
           break;
-        case currentScore < 12:
+        case currentScore < chosenDifficulty.length:
           congrats.classList.add("better");
           break;
         default:
@@ -228,3 +230,21 @@ document
 document
   .getElementById("clear-history")
   .addEventListener("click", clearHistory);
+
+// Test
+// (function gameOverTest() {
+//   let allCards = document.querySelectorAll(".card");
+//   allCards.forEach((card) => {
+//     card.classList.add("hide");
+//   });
+
+//   setTimeout(() => {
+//     let congrats = document.createElement("div");
+//     congrats.classList.add("congrats");
+//     congrats.textContent = `You completed the game in ${score} turns!`;
+
+//     congrats.classList.add("best");
+
+//     board.appendChild(congrats);
+//   }, 1200);
+// })();
