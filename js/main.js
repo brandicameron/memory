@@ -9,14 +9,14 @@ let cardsCurrentlyFlipped = [];
 let cardsMatched = [];
 let score = 0;
 
-// Add score to Local Storage
+// add score to local storage
 let scoreHistory = JSON.parse(localStorage.getItem("scoreList") || "[]");
 
 function saveScore(level, score) {
   let newData = { level: level, score: score };
   scoreHistory.push(newData);
   localStorage.setItem("scoreList", JSON.stringify(scoreHistory));
-  // Add score to DOM
+  // add score to DOM
   new ScoreTemplate(newData.level, newData.score);
 }
 
@@ -42,6 +42,7 @@ class MemoryCard {
     let cardImg = document.createElement("img");
     cardImg.classList.add("card-image");
     cardImg.src = imgSrc;
+    cardImg.alt = " ";
     cardImg.setAttribute("data-name", imgName);
     cardFront.appendChild(cardImg);
   }
@@ -105,7 +106,7 @@ function createBoard() {
     new MemoryCard(img.src, img.name);
   });
 
-  // Change color of cards based on selected difficulty
+  // change color of cards based on selected difficulty
   let cardBacks = document.querySelectorAll(".card-back");
 
   if (chosenDifficulty === hardArray) {
@@ -119,7 +120,7 @@ function flipCards(e) {
   let card = e.target.parentElement;
   if (card.classList.contains("card")) {
     /* 
-    Scoring in this if statement prevents score being incremented if a
+    scoring in this if statement prevents score being incremented if a
     third card is clicked while the original 2 cards are still flipped
     */
     if (cardsCurrentlyFlipped.length === 1) {
@@ -205,6 +206,10 @@ function displayCurrentScore() {
   scoreDisplay.textContent = score;
 }
 
+function viewScoreHistory() {
+  historyContainer.classList.toggle("slide-out");
+}
+
 function resetBoard() {
   board.innerHTML = "";
   score = 0;
@@ -212,7 +217,10 @@ function resetBoard() {
   cardsMatched = [];
 }
 
-function clearHistory() {
+function clearHistory(e) {
+  // this prevents the score board from sliding back in when the clear history button is clicked
+  e.stopPropagation();
+
   localStorage.clear();
   document.querySelector(".scores-container").innerHTML = "";
 }
@@ -228,11 +236,13 @@ displayScoreHistory();
 // Event Listeners
 const toggleSwitch = document.getElementById("switch");
 const clearHistoryBtn = document.getElementById("clear-history");
+const historyContainer = document.querySelector(".score-history-container");
 
 startBtn.addEventListener("click", startGame);
 board.addEventListener("click", flipCards);
 toggleSwitch.addEventListener("change", determineDifficulty);
 clearHistoryBtn.addEventListener("click", clearHistory);
+historyContainer.addEventListener("click", viewScoreHistory);
 
 // Test
 // (function gameOverTest() {
@@ -250,4 +260,8 @@ clearHistoryBtn.addEventListener("click", clearHistory);
 
 //     board.appendChild(congrats);
 //   }, 1200);
+
+//   let currentLevel = difficulty;
+//   let currentScore = score;
+//   saveScore(currentLevel, currentScore);
 // })();

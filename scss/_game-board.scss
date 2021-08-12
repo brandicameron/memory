@@ -85,20 +85,3 @@
   margin: 0 auto;
   text-align: center;
 }
-
-button {
-  background-color: var(--accent-color);
-  background: var(--gradient);
-  color: #fff;
-  border: none;
-  outline: none;
-  border-radius: 15px;
-  width: 175px;
-  height: 45px;
-  margin: 25px auto 0 auto;
-  cursor: pointer;
-}
-
-button:hover {
-  filter: brightness(1.1);
-}

@@ -2,7 +2,12 @@
   --correct-color: #2bb82b;
   --correct-color: rgb(93, 248, 93);
   --accent-color: #c58ced;
-  --gradient: linear-gradient(-90deg, #5280fd, #c58ced);
+  // --gradient: linear-gradient(-90deg, #5280fd, #c58ced);
+  --gradient: linear-gradient(
+    24deg,
+    rgb(162, 81, 219) 0%,
+    rgb(197, 140, 237) 50.19%
+  );
   --hard-gradient: linear-gradient(to right, rgb(181, 26, 0), rgb(227, 0, 79));
 }
 
@@ -15,9 +20,35 @@
 
 body {
   background-color: rgb(19, 19, 19);
-  background-image: url(../img/stars.svg);
-  background-size: 70%;
   color: #fff;
+  overflow-x: hidden;
+}
+
+main {
+  // you must have position relative for the overflow to work
+  position: relative;
+  overflow-x: hidden;
+}
+
+.stars {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  width: 200vw;
+  height: 200%;
+  background-image: url(../img/stars.svg);
+  background-size: 40%;
+  background-position: center;
+  transform-origin: center;
+  animation: rotate 2000s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .logo {
@@ -26,5 +57,21 @@ body {
   height: auto;
   top: 25px;
   left: 25px;
-  // transform: skewY(-15deg);
+}
+
+button {
+  background-color: var(--accent-color);
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  width: 175px;
+  height: 45px;
+  min-height: 45px;
+  margin: 25px auto 0 auto;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.1);
 }

@@ -17,47 +17,51 @@
 </head>
 
 <body>
+  <div class="stars"></div>
   <div class="score-box">
     <p class="turns"># of Turns</p>
     <p class="score"></p>
   </div>
   <img src="./img/logo2.svg" alt="Monster Match Logo" class="logo">
-  <div class="container">
-    <!-- <div class="congrats best"></div> -->
-    <form>
-      <p>Easy</p>
-      <div class="toggle">
-        <input id="switch" type="checkbox" class="checkbox" />
-        <label for="switch" class="checkbox-label"></label>
+  <main>
+    <div class="container">
+      <!-- <div class="congrats best"></div> -->
+      <form>
+        <p>Easy</p>
+        <div class="toggle">
+          <input id="switch" type="checkbox" class="checkbox" />
+          <label for="switch" class="checkbox-label"></label>
+        </div>
+        <p>Hard</p>
+      </form>
+      <div class="board">
+        <!-- <div class="card">
+            <div class="card-back"></div>
+            <div class="card-front"><img src="./img/banana.svg" alt="" /></div>
+          </div> -->
       </div>
-      <p>Hard</p>
-    </form>
-    <div class="board">
-      <!-- <div class="card">
-          <div class="card-back"></div>
-          <div class="card-front"><img src="./img/banana.svg" alt="" /></div>
-        </div> -->
+      <div class="button-container">
+        <!-- <img src="./img/arrow.svg" alt="Start a New Game!" class="arrow" /> -->
+        <button id="start-btn">Start New Game</button>
+      </div>
     </div>
-    <div class="button-container">
-      <!-- <img src="./img/arrow.svg" alt="Start a New Game!" class="arrow" /> -->
-      <button id="start-btn">Start New Game</button>
-    </div>
-  </div>
 
-  <div class="score-history-container">
-    <h1>History</h1>
-    <header>
-      <h3>Level</h3>
-      <h3>Turns</h3>
-    </header>
-    <div class="scores-container">
-      <!-- <div class="score-display">
-          <div class="level">Easy</div>
-          <div class="num-turns">11</div>
-        </div> -->
-    </div>
-    <button id="clear-history">Clear History</button>
-  </div>
+    <section class="score-history-container">
+      <div class="tab">Score History</div>
+      <h1 class="score-heading">History</h1>
+      <header>
+        <h2>Level</h2>
+        <h2>Turns</h2>
+      </header>
+      <div class="scores-container">
+        <!-- <div class="score-display">
+            <div class="level">Easy</div>
+            <div class="num-turns">11</div>
+          </div> -->
+      </div>
+      <button id="clear-history" class="clear-history">Clear History</button>
+    </section>
+  </main>
 
   <script type="module" src="js/main.js"></script>
 </body>

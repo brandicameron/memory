@@ -1,15 +1,52 @@
 .score-history-container {
-  position: relative;
+  position: absolute;
+  top: 50%;
+  transform: translate(193%, -50%);
   display: flex;
   flex-direction: column;
-  border: 4px solid black;
-  border-image-source: var(--gradient);
-  border-image-slice: 1;
-  background-color: rgb(34, 34, 34);
   width: 50vw;
   min-width: 325px;
-  margin: 0 auto;
-  padding: 20px 50px;
+  height: 70vh;
+  background-color: rgb(19, 19, 19);
+  border: 4px solid var(--accent-color);
+  border-radius: 20px;
+  padding: 10px 0 50px 0;
+  overflow-y: scroll;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.tab {
+  position: sticky;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-48%, -50%) rotate(-90deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  font-weight: bold;
+}
+
+.slide-out {
+  animation: slide-out 150ms ease-in-out forwards;
+}
+
+.slide-out .tab {
+  font-size: 2rem;
+}
+
+@keyframes slide-out {
+  to {
+    transform: translate(105%, -50%);
+  }
+}
+
+@keyframes slide-out-mobile {
+  to {
+    transform: translate(-50%, -85%);
+  }
 }
 
 h1 {
@@ -20,7 +57,7 @@ header {
   display: flex;
   width: 70%;
   justify-content: space-around;
-  margin: 8px auto;
+  margin: 0 auto;
   padding: 8px 0;
   background: #fff;
   color: #000;

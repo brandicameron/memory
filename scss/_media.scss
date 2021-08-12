@@ -11,23 +11,64 @@
   }
 }
 
-@media screen and (max-width: 400px) {
-  .logo {
-    width: 150px;
-  }
-
-  .board {
-    grid-gap: 10px;
-  }
-
-  .card {
-    width: 75px;
-    height: 75px;
-  }
-}
-
 @media (orientation: landscape) and (pointer: coarse) {
   .container {
     height: calc(100vh - 70px);
+  }
+
+  .score-history-container {
+    height: 60vh;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .logo {
+    width: 150px;
+    top: 20px;
+  }
+
+  form {
+    margin-top: -100px;
+  }
+
+  .board {
+    grid-gap: 7px;
+  }
+
+  .card {
+    width: 60px;
+    height: 60px;
+  }
+
+  .score-history-container {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: auto;
+    width: 110vw;
+    bottom: -73%;
+  }
+
+  .tab {
+    position: relative;
+    top: 0;
+    transform: translateX(-50%);
+    margin-bottom: 40px;
+  }
+
+  .score-heading {
+    display: none;
+  }
+
+  .slide-out {
+    animation: slide-out-mobile 150ms ease-in-out forwards;
+  }
+
+  .score-box {
+    padding: 6px 10px;
+  }
+
+  .score {
+    font-size: 1.5rem;
   }
 }
