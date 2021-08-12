@@ -10,10 +10,17 @@
   <meta name="theme-color" content="#ffffff" />
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/styles.min.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5c58ce">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- FB Share Graphic -->
-  <meta property="og:title" content="Memory Game" />
-  <meta property="og:image" content="  IMAGE URL  HERE  " />
+  <meta property="og:title" content="Play the Monster Match Memory Game!" />
+  <meta property="og:image" content="./img/share.jpg" />
 </head>
 
 <body>
@@ -22,7 +29,8 @@
     <p class="turns"># of Turns</p>
     <p class="score"></p>
   </div>
-  <img src="./img/logo2.svg" alt="Monster Match Logo" class="logo">
+  <img src="./img/logo.svg" alt="Monster Match Logo" class="logo">
+
   <main>
     <div class="container">
       <!-- <div class="congrats best"></div> -->
@@ -62,6 +70,20 @@
       <button id="clear-history" class="clear-history">Clear History</button>
     </section>
   </main>
+
+  <footer>
+    <a href='https://www.freepik.com/vectors'>Monster &amp; star vectors created by macrovector - www.freepik.com</a>
+    <div class="copyright">
+      Everything else designed &amp; developed by Brandi Cameron in
+      <span class="copyright" id="copyright-year"></span>
+    </div>
+    <div class="contact-buttons">
+      <a href="https://twitter.com/BrandiLCameron"><img src="./img/icons/twitter.svg" alt="" class="icon"></a>
+      <a href="https://github.com/brandicameron"><img src="./img/icons/github.svg" alt="" class="icon"></a>
+      <a href="mailto:hello@brandicameron.com"><img src="./img/icons/email.svg" alt="" class="icon"></a>
+    </div>
+
+  </footer>
 
   <script type="module" src="js/main.js"></script>
 </body>

@@ -1,0 +1,31 @@
+footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 225px;
+  padding: 50px;
+  background: var(--gradient);
+  margin-top: 50px;
+  line-height: 150%;
+  z-index: 10;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+}
+
+.icon {
+  width: 30px;
+  margin: 0 10px;
+  transition: transform 100ms;
+}
+
+.icon:hover {
+  transform: scale(1.05);
+}

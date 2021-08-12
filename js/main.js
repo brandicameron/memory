@@ -233,6 +233,10 @@ function startGame() {
 startGame();
 displayScoreHistory();
 
+// copyright
+const currentYear = new Date().getFullYear();
+document.getElementById("copyright-year").textContent = currentYear;
+
 // Event Listeners
 const toggleSwitch = document.getElementById("switch");
 const clearHistoryBtn = document.getElementById("clear-history");
