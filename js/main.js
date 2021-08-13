@@ -208,6 +208,13 @@ function displayCurrentScore() {
 
 function viewScoreHistory() {
   historyContainer.classList.toggle("slide-out");
+
+  if (historyContainer.classList.contains("slide-out")) {
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${window.scrollY}px`;
+  } else {
+    document.body.style.position = "static";
+  }
 }
 
 function resetBoard() {

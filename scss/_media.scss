@@ -60,6 +60,10 @@
     display: none;
   }
 
+  .slide-out .tab {
+    font-size: 2rem;
+  }
+
   .slide-out {
     animation: slide-out-mobile 150ms ease-in-out forwards;
   }
