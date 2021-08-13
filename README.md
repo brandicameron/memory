@@ -1,16 +1,12 @@
 # Monster Match Memory Game
 
+![Demo](img/mm.gif)
+
+---
+
 Test your memory with this spooky little game.
 
 PLAY HERE: [brandicameron.github.io/monster-match/](brandicameron.github.io/monster-match/)
-
----
-
-## Demo
-
----
-
-![Demo](img/mm.gif)
 
 ---
 
@@ -39,4 +35,4 @@ Logo was created in Illustrator using monster vector graphics from [www.freepick
 
 <p style="text-align: center;">--------------------------------</p>
 
-Discovered the fisher-yates shuffle from this [stackoverflow](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array) post, which has been useful in other projects as well. (check out this [US State Quiz](brandicameron.github.io/states/)!) 😃
+Discovered the fisher-yates shuffle from this [stackoverflow](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array) post, which has been useful in other projects as well. (check out this [US State Quiz](https://brandicameron.github.io/states/)!) 😃
