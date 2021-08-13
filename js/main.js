@@ -1,104 +1,30 @@
-import { easyArray } from "./easy-array.js";
-import { hardArray } from "./hard-array.js";
+import { hardArray, easyArray } from "./card-arrays.js";
+import { board, MemoryCard, ScoreTemplate } from "./templates.js";
+import { shuffle } from "./shuffle.js";
 
-const board = document.querySelector(".board");
 const startBtn = document.getElementById("start-btn");
 let chosenDifficulty = easyArray;
-let difficulty = "easy";
+let difficulty = "Easy";
 let cardsCurrentlyFlipped = [];
 let cardsMatched = [];
 let score = 0;
-
-// add score to local storage
 let scoreHistory = JSON.parse(localStorage.getItem("scoreList") || "[]");
-
-function saveScore(level, score) {
-  let newData = { level: level, score: score };
-  scoreHistory.push(newData);
-  localStorage.setItem("scoreList", JSON.stringify(scoreHistory));
-  // add score to DOM
-  new ScoreTemplate(newData.level, newData.score);
-}
-
-function displayScoreHistory() {
-  scoreHistory.forEach((score) => {
-    new ScoreTemplate(score.level, score.score);
-  });
-}
-
-class MemoryCard {
-  constructor(imgSrc, imgName) {
-    let card = document.createElement("div");
-    card.classList.add("card");
-    card.setAttribute("data-name", imgName);
-    board.appendChild(card);
-    let cardBack = document.createElement("div");
-    cardBack.classList.add("card-back");
-    // cardBack.textContent = imgName; //for testing lol
-    card.appendChild(cardBack);
-    let cardFront = document.createElement("div");
-    cardFront.classList.add("card-front");
-    card.appendChild(cardFront);
-    let cardImg = document.createElement("img");
-    cardImg.classList.add("card-image");
-    cardImg.src = imgSrc;
-    cardImg.alt = "Silly moster to match up.";
-    cardImg.height = "200";
-    cardImg.width = "200";
-    cardImg.setAttribute("data-name", imgName);
-    cardFront.appendChild(cardImg);
-  }
-}
-
-class ScoreTemplate {
-  constructor(level, turns) {
-    let scoresContainer = document.querySelector(".scores-container");
-    let scoreDisplay = document.createElement("div");
-    scoreDisplay.classList.add("score-display");
-    scoresContainer.appendChild(scoreDisplay);
-    let levelDisplay = document.createElement("div");
-    levelDisplay.classList.add("level");
-    levelDisplay.textContent = level;
-    scoreDisplay.appendChild(levelDisplay);
-    let turnsDisplay = document.createElement("div");
-    turnsDisplay.classList.add("num-turns");
-    turnsDisplay.textContent = turns;
-    scoreDisplay.appendChild(turnsDisplay);
-  }
-}
 
 function determineDifficulty() {
   const scoreBox = document.documentElement.querySelector(".score-box");
 
   if (this.checked === false) {
     chosenDifficulty = easyArray;
-    difficulty = "easy";
+    difficulty = "Easy";
     scoreBox.style.background = "var(--gradient)";
     startBtn.style.background = "var(--gradient)";
   } else {
     chosenDifficulty = hardArray;
-    difficulty = "hard";
+    difficulty = "Hard";
     scoreBox.style.background = "var(--hard-gradient)";
     startBtn.style.background = "var(--hard-gradient)";
   }
   startGame();
-}
-
-function shuffle(array) {
-  // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-  var currentIndex = array.length,
-    temporaryValue,
-    randomIndex;
-
-  while (0 !== currentIndex) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
 }
 
 function createBoard() {
@@ -108,7 +34,7 @@ function createBoard() {
     new MemoryCard(img.src, img.name);
   });
 
-  // change color of cards based on selected difficulty
+  // color of cards based on selected difficulty
   let cardBacks = document.querySelectorAll(".card-back");
 
   if (chosenDifficulty === hardArray) {
@@ -203,6 +129,14 @@ function gameOverCheck() {
   }
 }
 
+function saveScore(level, score) {
+  let newData = { level: level, score: score };
+  scoreHistory.push(newData);
+  localStorage.setItem("scoreList", JSON.stringify(scoreHistory));
+  // add score to DOM
+  new ScoreTemplate(newData.level, newData.score);
+}
+
 function displayCurrentScore() {
   let scoreDisplay = document.querySelector(".score");
   scoreDisplay.textContent = score;
@@ -219,6 +153,13 @@ function viewScoreHistory() {
   }
 }
 
+// pulls from local storage & displays in history on load
+(function displayScoreHistory() {
+  scoreHistory.forEach((score) => {
+    new ScoreTemplate(score.level, score.score);
+  });
+})();
+
 function resetBoard() {
   board.innerHTML = "";
   score = 0;
@@ -229,7 +170,6 @@ function resetBoard() {
 function clearHistory(e) {
   // this prevents the score board from sliding back in when the clear history button is clicked
   e.stopPropagation();
-
   localStorage.clear();
   document.querySelector(".scores-container").innerHTML = "";
 }
@@ -239,12 +179,8 @@ function startGame() {
   displayCurrentScore();
   createBoard();
 }
-startGame();
-displayScoreHistory();
 
-// copyright
-const currentYear = new Date().getFullYear();
-document.getElementById("copyright-year").textContent = currentYear;
+startGame();
 
 // Event Listeners
 const toggleSwitch = document.getElementById("switch");
