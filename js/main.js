@@ -42,7 +42,9 @@ class MemoryCard {
     let cardImg = document.createElement("img");
     cardImg.classList.add("card-image");
     cardImg.src = imgSrc;
-    cardImg.alt = " ";
+    cardImg.alt = "Silly moster to match up.";
+    cardImg.height = "200";
+    cardImg.width = "200";
     cardImg.setAttribute("data-name", imgName);
     cardFront.appendChild(cardImg);
   }
