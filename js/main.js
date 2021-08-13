@@ -195,9 +195,9 @@ function gameOverCheck() {
     setTimeout(() => {
       let container = document.querySelector(".button-container");
       let arrow = document.createElement("img");
-      arrow.classList.add("arrow");
       arrow.src = "./img/arrow.svg";
       arrow.alt = "Start a New Game!!";
+      arrow.classList.add("arrow");
       container.appendChild(arrow);
     }, 2500);
   }
@@ -273,6 +273,15 @@ historyContainer.addEventListener("click", viewScoreHistory);
 
 //     board.appendChild(congrats);
 //   }, 1200);
+
+//   setTimeout(() => {
+//     let container = document.querySelector(".button-container");
+//     let arrow = document.createElement("img");
+//     arrow.src = "./img/arrow.svg";
+//     arrow.alt = "Start a New Game!!";
+//     arrow.classList.add("arrow");
+//     container.appendChild(arrow);
+//   }, 2500);
 
 //   let currentLevel = difficulty;
 //   let currentScore = score;

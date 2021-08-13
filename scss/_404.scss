@@ -1,0 +1,23 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.lost-message {
+  display: flex;
+  height: 90vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lost-monster {
+  width: 35vh;
+  height: auto;
+  margin: 30px 0;
+}
+
+.push-footer {
+  margin-top: auto;
+}

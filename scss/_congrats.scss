@@ -5,11 +5,11 @@
   margin-right: -50%;
   transform: translate(-50%, -50%) scale(0);
   transform-origin: center;
-  width: clamp(300px, 300px, 50vw);
-  z-index: 10;
+  width: 300px;
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
+  z-index: 10;
   animation: grow 75ms linear forwards;
 }
 

@@ -1,5 +1,4 @@
 :root {
-  --correct-color: #2bb82b;
   --correct-color: rgb(93, 248, 93);
   --accent-color: #c58ced;
   --gradient: linear-gradient(
@@ -67,7 +66,11 @@ main {
   left: 25px;
 }
 
-button {
+button,
+.link-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--accent-color);
   background: var(--gradient);
   color: #fff;
@@ -80,6 +83,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover,
+.link-button:hover {
   filter: brightness(1.1);
 }
