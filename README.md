@@ -22,7 +22,7 @@ I learned soooooooo many fun things coding out this little card game:
 - Javascript Classes
 - Using setTimeout.
 - How to prevent event bubbling.
-- How to make an accessible style toggle button that can be tabbed to.
+- How to make an accessible styled toggle button that can be tabbed to.
 - Built my first testing function.
 
 ---
