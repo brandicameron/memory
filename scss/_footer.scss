@@ -1,9 +1,7 @@
 footer {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  @extend .flex-column;
   justify-content: space-around;
-  align-items: center;
   width: 100vw;
   height: 225px;
   padding: 50px;
@@ -24,9 +22,7 @@ footer {
 }
 
 .contact-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend .flex-row;
   width: 350px;
 }
 

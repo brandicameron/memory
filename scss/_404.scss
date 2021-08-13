@@ -1,15 +1,11 @@
 .content {
-  display: flex;
-  flex-direction: column;
+  @extend .flex-column;
   min-height: 100vh;
 }
 
 .lost-message {
-  display: flex;
+  @extend .flex-column;
   height: 90vh;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .lost-monster {

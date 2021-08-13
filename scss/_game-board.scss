@@ -1,9 +1,6 @@
 .container {
+  @extend .flex-column;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100vw;
   height: 100vh;
 }
@@ -17,9 +14,6 @@
 .card {
   width: clamp(90px, 16vh, 200px);
   height: clamp(90px, 16vh, 200px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
   cursor: pointer;
@@ -40,9 +34,6 @@
 }
 
 .card-back {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-image: url(../img/circles.svg), var(--gradient);
   background-size: 120%;
   background-position: center;
