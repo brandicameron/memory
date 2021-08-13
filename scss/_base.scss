@@ -49,8 +49,12 @@ main {
   animation: rotate 1900s linear infinite;
 }
 
+// must use 0%-100% instead of to/from in order to work in Safari
 @keyframes rotate {
-  to {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
