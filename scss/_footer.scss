@@ -7,10 +7,20 @@ footer {
   width: 100vw;
   height: 225px;
   padding: 50px;
-  background: var(--gradient);
-  margin-top: 50px;
+  background: var(--accent-color);
+  margin-top: 175px;
   line-height: 150%;
   z-index: 10;
+}
+
+.footer-shape {
+  position: absolute;
+  top: -85px;
+  width: 100vw;
+  height: 100px;
+  background-image: url(../img/footer.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .contact-buttons {
