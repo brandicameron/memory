@@ -24,15 +24,31 @@ footer {
 
 .contact-buttons {
   @extend .flex-row;
-  width: 350px;
+  width: 150px;
 }
 
 .icon {
   width: 30px;
+  height: 30px;
   margin: 0 10px;
   transition: transform 100ms;
+  background: url("../img/contact-icons.svg") no-repeat;
+  background-size: cover;
 }
 
 .icon:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateY(-1px);
+}
+
+.twitter-icon {
+  background-position: -1px 0px;
+}
+
+.github-icon {
+  background-position: -37px 0px;
+  width: 31px;
+}
+
+.email-icon {
+  background-position: -75px 0px;
 }
