@@ -1,12 +1,12 @@
 :root {
   --correct-color: rgb(93, 248, 93);
   --accent-color: #c58ced;
-  --gradient: linear-gradient(
+  --easy-gradient: linear-gradient(
     24deg,
     rgb(162, 81, 219) 0%,
     rgb(197, 140, 237) 50.19%
   );
-  --hard-gradient: linear-gradient(to right, rgb(181, 26, 0), rgb(227, 0, 79));
+  --hard-gradient: linear-gradient(to right, rgb(173, 26, 0), rgb(227, 0, 79));
 }
 
 * {
@@ -87,7 +87,7 @@ button,
   justify-content: center;
   align-items: center;
   background-color: var(--accent-color);
-  background: var(--gradient);
+  background: var(--easy-gradient);
   color: #fff;
   border: none;
   border-radius: 15px;

@@ -16,8 +16,8 @@ function determineDifficulty() {
   if (this.checked === false) {
     chosenDifficulty = easyArray;
     difficulty = "Easy";
-    scoreBox.style.background = "var(--gradient)";
-    startBtn.style.background = "var(--gradient)";
+    scoreBox.style.background = "var(--easy-gradient)";
+    startBtn.style.background = "var(--easy-gradient)";
   } else {
     chosenDifficulty = hardArray;
     difficulty = "Hard";
@@ -39,7 +39,7 @@ function createBoard() {
 
   if (chosenDifficulty === hardArray) {
     cardBacks.forEach((card) => {
-      card.classList.add("hard-color");
+      card.style.background = "url(../img/circles.svg), var(--hard-gradient)";
     });
   }
 }

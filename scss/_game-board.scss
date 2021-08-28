@@ -34,7 +34,7 @@
 }
 
 .card-back {
-  background-image: url(../img/circles.svg), var(--gradient);
+  background-image: url(../img/circles.svg), var(--easy-gradient);
   background-size: 120%;
   background-position: center;
 }
@@ -63,12 +63,6 @@
 
 .correct-match {
   border: 8px solid var(--correct-color);
-}
-
-.hard-color {
-  background-image: url(../img/circles.svg), var(--hard-gradient);
-  background-size: 120%;
-  background-position: center;
 }
 
 .button-container {
