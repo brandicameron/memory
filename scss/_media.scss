@@ -46,7 +46,7 @@
     transform: translateX(-50%);
     top: auto;
     width: 110vw;
-    bottom: -73%;
+    bottom: -60vh;
   }
 
   .tab {
@@ -79,5 +79,11 @@
   footer {
     height: 300px;
     margin-top: -75px;
+  }
+
+  .congrats {
+    font-size: 1.5rem;
+    width: 250px;
+    height: 35vh;
   }
 }

@@ -147,7 +147,7 @@ function viewScoreHistory() {
 
   if (historyContainer.classList.contains("slide-out")) {
     document.body.style.position = "fixed";
-    document.body.style.top = `-${window.scrollY}px`;
+    // document.body.style.top = `-${window.scrollY}px`;
   } else {
     document.body.style.position = "static";
   }
@@ -205,7 +205,7 @@ historyContainer.addEventListener("click", viewScoreHistory);
 //     congrats.classList.add("congrats");
 //     congrats.textContent = `You completed the game in ${score} turns!`;
 
-//     congrats.classList.add("best");
+//     congrats.classList.add("better");
 
 //     board.appendChild(congrats);
 //   }, 1200);
