@@ -35,4 +35,4 @@ Logo was created in Illustrator using monster vector graphics from [www.freepick
 
 <p style="text-align: center;">--------------------------------</p>
 
-Discovered the fisher-yates shuffle from this [stackoverflow](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array) post, which has been useful in other projects as well. (check out this [US Map Quiz](https://brandicameron.github.io/us-map-quiz/)!) 😃
+Discovered the fisher-yates shuffle from this [stackoverflow](https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array) post, which has been useful in other projects as well. (check out this [US Map Quiz](https://brandicameron.github.io/us-map-quiz/) or this [Blackjack Game](https://brandicameron.github.io/blackjack/)!) 😃
