@@ -13,7 +13,7 @@
 
 @media (orientation: landscape) and (pointer: coarse) {
   .container {
-    height: calc(100vh - 70px);
+    min-height: calc(100vh - 70px);
   }
 
   .score-history-container {
@@ -79,6 +79,7 @@
   footer {
     height: 300px;
     margin-top: -75px;
+    padding-bottom: 5rem;
   }
 
   .congrats {
